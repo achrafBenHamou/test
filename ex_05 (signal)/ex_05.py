@@ -15,7 +15,7 @@ import numpy
 import scipy.fft, scipy.signal
 import matplotlib.pyplot as plt
 
-
+import numpy
 def open_file(filename: str):
     """
     Etape 1: Chargement des données numpy
@@ -23,6 +23,7 @@ def open_file(filename: str):
     Input: String du nom du fichier
     Output: 1-D array numpy de flottants
     """
+    return (numpy.load(filename))
     
 
 class signal_tools:
@@ -51,6 +52,7 @@ class signal_tools:
             signal_data: Les données brutes du fichier signal.npy (Etape 1)
             ts: timestamp du signal (Etape 2)
         """
+        import scipy.fft
 
     @staticmethod
     def get_signal_freq(xf, yf):
@@ -161,8 +163,8 @@ class signal_tools:
 if __name__ == "__main__":
     # Extraction des données
     signal_data = open_file("signal.npy")
-    # plt.plot(range(len(signal_data)), signal_data)
-    # plt.show()
+    plt.plot(range(len(signal_data)), signal_data)
+    plt.show()
 
     # Création du timestamp
     ts = signal_tools().compute_timestamp(signal_data)
