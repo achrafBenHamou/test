@@ -11,11 +11,10 @@ Pour info:
 """
 
 import os
-import numpy
+import numpy as np
 import scipy.fft, scipy.signal
 import matplotlib.pyplot as plt
 
-import numpy
 def open_file(filename: str):
     """
     Etape 1: Chargement des données numpy
@@ -23,7 +22,7 @@ def open_file(filename: str):
     Input: String du nom du fichier
     Output: 1-D array numpy de flottants
     """
-    return (numpy.load(filename))
+    return (np.load(filename))
     
 
 class signal_tools:
@@ -40,6 +39,9 @@ class signal_tools:
         
         Création du timestamp à partir du nombre de données et de la fréquence d'acquisition
         """
+        f = self.__acquisition_frequency
+        size = signal_data.size
+
 
     @staticmethod
     def compute_fourrier_transform(signal_data, ts):
